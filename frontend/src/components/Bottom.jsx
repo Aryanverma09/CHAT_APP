@@ -13,7 +13,7 @@ const Bottom = ({ setResponse }) => {
     if (!text.trim()) return;
 
     try {
-      const res = await axios.post("http://localhost:3000/ai/generate", {
+      const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/ai/generate`, {
         prompt: text,
       }).catch((err) => {
         console.error("Error in POST request:", err);

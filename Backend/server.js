@@ -5,7 +5,11 @@ dotenv.config();
 import aiRoutes from './routes/ai.route.js';
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: ["https://ai-chat-assistant-nu.vercel.app"], // your Vercel frontend URL
+  methods: ["GET", "POST"],
+}));
+
 app.use(express.json());
 app.use(express.urlencoded({extended : true}));
 app.use('/ai', aiRoutes)
